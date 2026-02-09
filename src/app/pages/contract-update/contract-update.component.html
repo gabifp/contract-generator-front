@@ -61,7 +61,9 @@
         <div class="col-4">
           <label class="form-label">Número</label>
           <input
-            class="form-control" formControlName="number"
+            formControlName="number"
+            class="form-control"
+            #number
             [class.is-invalid]="form.controls.number.touched && form.controls.number.invalid">
           @if (form.controls.number.touched && form.controls.number.invalid) {
             <div class="invalid-feedback">Campo obrigatório</div>

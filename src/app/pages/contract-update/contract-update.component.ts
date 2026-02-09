@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {AddressService} from '../../services/address/address.service';
 import {finalize} from 'rxjs';
@@ -17,6 +17,8 @@ export class ContractUpdateComponent {
 
   private fb = inject(FormBuilder);
   private addressService = inject(AddressService);
+
+  @ViewChild('number') number!: ElementRef<HTMLInputElement>;
 
   isLoadingCep = false;
 
@@ -49,6 +51,10 @@ export class ContractUpdateComponent {
             street: address.street,
             city: address.city,
             state: address.state
+          });
+
+          setTimeout(() => {
+            this.number.nativeElement.focus();
           });
         },
         error: () => {
