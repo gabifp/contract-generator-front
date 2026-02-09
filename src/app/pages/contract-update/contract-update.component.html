@@ -1,1 +1,121 @@
-<p>contract-update works!</p>
+<div class="container d-flex justify-content-center">
+  <div class="w-50 mt-5">
+
+    <h2 class="my-4 text-primary fw-bold text-center">
+      Dados do contrato
+    </h2>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      class="shadow bg-body-tertiary rounded p-4">
+
+      <div class="mb-3">
+        <label class="form-label">Nome do locatário</label>
+        <input
+          class="form-control"
+          formControlName="nomeLocatario"
+          [class.is-invalid]="form.controls.nomeLocatario.touched && form.controls.nomeLocatario.invalid">
+        @if (form.controls.nomeLocatario.touched && form.controls.nomeLocatario.invalid) {
+          <div class="invalid-feedback">Campo obrigatório</div>
+        }
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-8">
+          <label class="form-label">CEP</label>
+          <input
+            class="form-control"
+            formControlName="cep"
+            placeholder="Somente números"
+            [class.is-invalid]="form.controls.cep.touched && form.controls.cep.invalid">
+          @if (form.controls.cep.touched && form.controls.cep.invalid) {
+            <div class="invalid-feedback">Campo obrigatório</div>
+          }
+        </div>
+        <div
+          class="col-4 d-flex align-items-end"
+          [class.align-items-center]="form.controls.cep.touched && form.controls.cep.invalid"
+          >
+          <button
+            type="button"
+            class="btn btn-outline-primary w-100"
+            [disabled]="form.controls.cep.invalid">
+            Buscar CEP
+          </button>
+        </div>
+      </div>
+
+      <!-- rua, número, complemento -->
+      <div class="row mb-3">
+        <div class="col-8">
+          <label class="form-label">Rua</label>
+          <input
+            class="form-control" formControlName="street"
+            [class.is-invalid]="form.controls.street.touched && form.controls.street.invalid">
+          @if (form.controls.street.touched && form.controls.street.invalid) {
+            <div class="invalid-feedback">Campo obrigatório</div>
+          }
+        </div>
+        <div class="col-4">
+          <label class="form-label">Número</label>
+          <input
+            class="form-control" formControlName="number"
+            [class.is-invalid]="form.controls.number.touched && form.controls.number.invalid">
+          @if (form.controls.number.touched && form.controls.number.invalid) {
+            <div class="invalid-feedback">Campo obrigatório</div>
+          }
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Complemento</label>
+        <input class="form-control" formControlName="complement">
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-6">
+          <label class="form-label">Cidade</label>
+          <input
+            class="form-control" formControlName="city"
+            [class.is-invalid]="form.controls.city.touched && form.controls.city.invalid">
+          @if (form.controls.city.touched && form.controls.city.invalid) {
+            <div class="invalid-feedback">Campo obrigatório</div>
+          }
+        </div>
+        <div class="col-6">
+          <label class="form-label">Estado</label>
+          <input
+            class="form-control" formControlName="state"
+            [class.is-invalid]="form.controls.state.touched && form.controls.state.invalid">
+          @if (form.controls.state.touched && form.controls.state.invalid) {
+            <div class="invalid-feedback">Campo obrigatório</div>
+          }
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Valor do aluguel</label>
+        <div class="input-group">
+          <span class="input-group-text">R$</span>
+          <input
+            formControlName="valorImovel"
+            class="form-control"
+            [class.is-invalid]="form.controls.valorImovel.touched && form.controls.valorImovel.invalid">
+          @if (form.controls.valorImovel.touched && form.controls.valorImovel.invalid) {
+            <div class="invalid-feedback">Campo obrigatório</div>
+          }
+        </div>
+      </div>
+
+      <button
+        class="btn btn-primary w-100"
+        type="submit"
+        [disabled]="form.invalid">
+        Gerar contrato
+      </button>
+
+    </form>
+  </div>
+</div>
+
