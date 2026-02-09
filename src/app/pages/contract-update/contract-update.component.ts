@@ -3,6 +3,8 @@ import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {AddressService} from '../../services/address/address.service';
 import {finalize} from 'rxjs';
 import {AlertUtil} from '../../utils/alert.util';
+import {ContractService} from '../../services/contract/contract.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'contract-update',
@@ -17,6 +19,9 @@ export class ContractUpdateComponent {
 
   private fb = inject(FormBuilder);
   private addressService = inject(AddressService);
+  private contractService = inject(ContractService);
+  private router = inject(Router);
+
 
   @ViewChild('number') number!: ElementRef<HTMLInputElement>;
 
@@ -65,12 +70,32 @@ export class ContractUpdateComponent {
       });
   }
 
-  submit() {
+  generateContract() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    console.log(this.form.value);
+    const formValue = this.form.getRawValue();
+
+    const payload = {
+      nomeLocatario: formValue.nomeLocatario ?? '',
+      enderecoImovel: `${formValue.street}, ${formValue.number} - ${formValue.city}/${formValue.state}`,
+      valorImovel: formValue.valorImovel ?? ''
+    };
+
+    this.contractService.generateContract(payload).subscribe({
+      next: contract => {
+        this.contractService.setGeneratedContract(contract);
+        this.router.navigate(['/contract', contract.id ?? 'view']);
+      },
+      error: () => {
+        AlertUtil.error(
+          'Erro ao gerar contrato',
+          'Tente novamente em alguns instantes.'
+        );
+      }
+    });
   }
+
 }
