@@ -1,1 +1,13 @@
-<p>contract-view works!</p>
+<div class="container my-5">
+  <h2 class="text-primary fw-bold mb-4">Contrato Gerado</h2>
+
+  <pre class="p-4 bg-light border rounded">
+    {{ contract.content }}
+  </pre>
+
+  <button
+    class="btn btn-secondary mt-4"
+    (click)="newContract()">
+    Gerar novo contrato
+  </button>
+</div>
