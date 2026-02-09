@@ -40,7 +40,8 @@
           <button
             type="button"
             class="btn btn-outline-primary w-100"
-            [disabled]="form.controls.cep.invalid">
+            [disabled]="form.controls.cep.invalid"
+            (click)="searchCep()">
             Buscar CEP
           </button>
         </div>
