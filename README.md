@@ -1,4 +1,6 @@
-# 📄 Contract Generator – Frontend
+# 🔹 FRONTEND –  (Português)
+
+# 📄 Contract Generator
 
 Interface web para geração automatizada de contratos a partir de templates reutilizáveis.
 
@@ -86,10 +88,10 @@ Angular • Spring Boot • TypeScript • Java
 
 ---
 
-# 🔹 FRONTEND – README.en.md
+# 🔹 FRONTEND –  (English)
 
 
-# 📄 Contract Generator – Frontend
+# 📄 Contract Generator
 
 Web interface for automated contract generation based on reusable templates.
 
@@ -172,7 +174,7 @@ http://localhost:4200
 
 ---
 
-## Autora:
+## Author:
 Gabriela Pimentel - 
 Desenvolvedora Full Stack - 
 Angular • Spring Boot • TypeScript • Java
