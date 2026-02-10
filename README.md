@@ -176,9 +176,5 @@ http://localhost:4200
 
 ## Author:
 Gabriela Pimentel - 
-Desenvolvedora Full Stack - 
+Full Stack Developer - 
 Angular • Spring Boot • TypeScript • Java
-
-
-
-
