@@ -86,7 +86,7 @@ Angular • Spring Boot • TypeScript • Java
 
 ---
 
-# 🔹 FRONTEND – README.en.md (Inglês)
+# 🔹 FRONTEND – README.en.md
 
 
 # 📄 Contract Generator – Frontend
