@@ -1,59 +1,182 @@
-# ContractGeneratorFront
+# 📄 Contract Generator – Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+Interface web para geração automatizada de contratos a partir de templates reutilizáveis.
 
-## Development server
+Este frontend foi desenvolvido com Angular moderno e tem como objetivo permitir que o usuário preencha apenas os dados variáveis de um contrato (como nome, endereço e valores), enquanto o texto base permanece padronizado.
 
-To start a local development server, run:
+> ⚠️ Status do projeto: **v0 – em desenvolvimento**
+
+---
+
+## 🧠 Visão geral
+
+A aplicação permite:
+
+- Preenchimento de dados do contrato via formulário dinâmico
+- Busca automática de endereço a partir do CEP
+- Validação de campos obrigatórios
+- Geração e visualização do contrato final
+- Separação clara entre edição e visualização do contrato
+
+---
+
+## 🏗️ Arquitetura
+
+Este projeto corresponde **apenas ao frontend** da aplicação.
+
+- Backend (API REST – Spring Boot):  
+  👉 https://github.com/gabifp/contract-generator
+
+A comunicação é feita via HTTP com endpoints REST.
+
+---
+
+## 🚀 Funcionalidades atuais (v0)
+
+- ✔️ Angular 21 com Standalone Components
+- ✔️ Formulários reativos com validações
+- ✔️ Integração com API de CEP (ViaCEP via backend)
+- ✔️ Geração de contrato a partir de template
+- ✔️ Visualização do contrato gerado
+- ✔️ Estilização com Bootstrap
+- ✔️ Estrutura preparada para evolução
+
+---
+
+## 🧪 Tecnologias utilizadas
+
+- Angular 21
+- TypeScript
+- Standalone Components
+- Reactive Forms
+- RxJS
+- Bootstrap
+- SCSS
+
+---
+
+## 🔮 Próximas melhorias planejadas
+
+- 📄 Exportação do contrato em PDF
+- 📥 Importação de PDFs genéricos para edição dinâmica
+- 🧠 Mapeamento dinâmico de campos do contrato
+- 👤 Autenticação e login de usuários
+- 🔐 Controle de acesso por usuário
+- 📚 Listagem e histórico de contratos
+- 🎨 Melhoria contínua de UX/UI
+
+---
+
+## ▶️ Como rodar o projeto
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Aplicação disponível em :
+http://localhost:4200
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Autora:
+Gabriela Pimentel - 
+Desenvolvedora Full Stack - 
+Angular • Spring Boot • TypeScript • Java
+
+---
+
+# 🔹 FRONTEND – README.en.md (Inglês)
+
+
+# 📄 Contract Generator – Frontend
+
+Web interface for automated contract generation based on reusable templates.
+
+This frontend was built with modern Angular and allows users to fill in only the variable data of a contract (such as name, address, and values), while keeping the base contract text standardized.
+
+> ⚠️ Project status: **v0 – under development**
+
+---
+
+## 🧠 Overview
+
+The application allows:
+
+- Dynamic contract data input via forms
+- Automatic address lookup by postal code
+- Required field validation
+- Contract generation and preview
+- Clear separation between editing and viewing contracts
+
+---
+
+## 🏗️ Architecture
+
+This repository contains **only the frontend** of the application.
+
+- Backend (REST API – Spring Boot):  
+  👉 https://github.com/gabifp/contract-generator
+
+Communication is done via RESTful HTTP endpoints.
+
+---
+
+## 🚀 Current features (v0)
+
+- ✔️ Angular 21 with Standalone Components
+- ✔️ Reactive forms with validations
+- ✔️ Address lookup integration (ViaCEP via backend)
+- ✔️ Contract generation from templates
+- ✔️ Contract preview page
+- ✔️ Bootstrap-based styling
+- ✔️ Scalable structure for future growth
+
+---
+
+## 🧪 Technologies
+
+- Angular 21
+- TypeScript
+- Standalone Components
+- Reactive Forms
+- RxJS
+- Bootstrap
+- SCSS
+
+---
+
+## 🔮 Planned improvements
+
+- 📄 Export contracts to PDF
+- 📥 Import generic PDF templates for dynamic editing
+- 🧠 Dynamic field mapping
+- 👤 User authentication and login
+- 🔐 User-based access control
+- 📚 Contract listing and history
+- 🎨 UX/UI improvements
+
+---
+
+## ▶️ How to run the project
 
 ```bash
-ng generate component component-name
+npm install
+ng serve
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## The application will be available at: 
+http://localhost:4200
 
-## Building
+---
 
-To build the project run:
+## Autora:
+Gabriela Pimentel - 
+Desenvolvedora Full Stack - 
+Angular • Spring Boot • TypeScript • Java
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
