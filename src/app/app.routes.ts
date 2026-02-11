@@ -4,10 +4,13 @@ import {ContractUpdateComponent} from './pages/contract-update/contract-update.c
 import {ContractViewComponent} from './pages/contract-view/contract-view.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'contracts', pathMatch: 'full' },
+  { path: '', redirectTo: 'contract/new', pathMatch: 'full' },
 
   { path: 'contracts', component: ContractListComponent },
   { path: 'contract/new', component: ContractUpdateComponent },
-  { path: 'contract/:id', component: ContractViewComponent },
+  { path: 'contract/view', component: ContractViewComponent },
+
+  // TODO: rota futura (contrato persistido)
+  { path: 'contracts/:id', component: ContractViewComponent }
 ];
 

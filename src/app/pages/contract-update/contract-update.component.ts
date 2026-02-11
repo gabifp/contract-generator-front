@@ -5,6 +5,7 @@ import {finalize} from 'rxjs';
 import {AlertUtil} from '../../utils/alert.util';
 import {ContractService} from '../../services/contract/contract.service';
 import {Router} from '@angular/router';
+import {ContractRequest} from '../../models/contract-request.model';
 
 @Component({
   selector: 'contract-update',
@@ -26,6 +27,7 @@ export class ContractUpdateComponent {
   @ViewChild('number') number!: ElementRef<HTMLInputElement>;
 
   isLoadingCep = false;
+  isLoading = false;
 
   form = this.fb.group({
     nomeLocatario: ['', Validators.required],
@@ -78,24 +80,33 @@ export class ContractUpdateComponent {
 
     const formValue = this.form.getRawValue();
 
-    const payload = {
-      nomeLocatario: formValue.nomeLocatario ?? '',
-      enderecoImovel: `${formValue.street}, ${formValue.number} - ${formValue.city}/${formValue.state}`,
-      valorImovel: formValue.valorImovel ?? ''
+    const payload: ContractRequest = {
+      templateId: 1,
+      fields: {
+        nomeLocatario: formValue.nomeLocatario ?? '',
+        enderecoImovel: `${formValue.street}, ${formValue.number} - ${formValue.city}/${formValue.state}`,
+        valorImovel: formValue.valorImovel ?? ''
+      }
     };
 
-    this.contractService.generateContract(payload).subscribe({
-      next: contract => {
-        this.contractService.setGeneratedContract(contract);
-        this.router.navigate(['/contract', contract.id ?? 'view']);
-      },
-      error: () => {
-        AlertUtil.error(
-          'Erro ao gerar contrato',
-          'Tente novamente em alguns instantes.'
-        );
-      }
-    });
+    this.isLoading = true;
+
+    this.contractService.generateContract(payload)
+      .subscribe({
+        next: contract => {
+          this.router.navigate(
+            ['/contract/view'],
+            { state: { contract } }
+          );
+        },
+        error: () => {
+          this.isLoading = false;
+          AlertUtil.error(
+            'Erro ao gerar contrato',
+            'Tente novamente em alguns instantes.'
+          );
+        }
+      });
   }
 
 }

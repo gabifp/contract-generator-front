@@ -1,5 +1,4 @@
 export interface ContractRequest {
-  nomeLocatario: string;
-  enderecoImovel: string;
-  valorImovel: string;
+  templateId: number;
+  fields: Record<string, string>;
 }

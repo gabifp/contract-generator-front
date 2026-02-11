@@ -9,11 +9,13 @@ export class ContractService {
 
   private http = inject(HttpClient);
 
+  private readonly API_URL = 'http://localhost:8080/api/contracts';
+
   private generatedContract: Contract | null = null;
 
   generateContract(payload: ContractRequest): Observable<Contract> {
     return this.http.post<Contract>(
-      'http://localhost:8080/api/templates/generate',
+      `${this.API_URL}/generate`,
       payload
     );
   }

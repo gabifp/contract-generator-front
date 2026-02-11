@@ -1,4 +1,4 @@
 export interface Contract {
-  id?: number;
+  templateId?: number;
   content: string;
 }
